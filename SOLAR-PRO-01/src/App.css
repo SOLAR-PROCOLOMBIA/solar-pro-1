@@ -1,0 +1,1769 @@
+
+/* =====================================================
+   SOLAR PRO 2.0
+   DISEÑO GENERAL - AZUL OSCURO, DORADO Y BLANCO
+   ===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --navy: #142b40;
+  --navy-light: #203e58;
+  --navy-soft: #294b67;
+  --gold: #c39435;
+  --gold-light: #f8edcf;
+  --white: #ffffff;
+  --background: #f3f6f9;
+  --text: #25394c;
+  --muted: #758597;
+  --border: #e2e8ee;
+  --green: #23845c;
+  --red: #bd4d4d;
+  --shadow: 0 5px 20px rgba(25, 48, 70, .06);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  font-size: 13px;
+}
+
+button,
+input,
+select {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+  background: var(--background);
+}
+
+/* =====================================================
+   MENÚ LATERAL
+   ===================================================== */
+
+.sidebar {
+  width: 255px;
+  min-width: 255px;
+  min-height: 100vh;
+  background: var(--navy);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  padding: 22px 15px;
+  overflow-y: auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 8px 25px;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+
+.logo-icon {
+  width: 43px;
+  height: 43px;
+  border-radius: 12px;
+  background: var(--gold);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-icon svg {
+  width: 27px;
+  height: 27px;
+}
+
+.logo b {
+  display: block;
+  font-size: 20px;
+  letter-spacing: 1px;
+  color: white;
+}
+
+.logo em {
+  color: #e7bd65;
+  font-style: normal;
+}
+
+.logo small {
+  display: block;
+  margin-top: 4px;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: #a9bac8;
+}
+
+.close-menu {
+  display: none;
+  margin-left: auto;
+  background: transparent;
+  color: white;
+  border: 0;
+}
+
+.side-label {
+  margin: 27px 9px 12px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  color: #91a5b8;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 11px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #c1ced9;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: left;
+  transition: .2s ease;
+}
+
+.nav-item svg {
+  flex-shrink: 0;
+  color: #a9bdcd;
+}
+
+.nav-item:hover {
+  background: rgba(255,255,255,.08);
+  color: white;
+}
+
+.nav-item.active {
+  color: white;
+  background: var(--navy-light);
+  border-left: 3px solid var(--gold);
+}
+
+.nav-item.active svg {
+  color: #e5bd68;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+  padding: 18px 9px 3px;
+  border-top: 1px solid rgba(255,255,255,.12);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #b4c3d0;
+  font-size: 10px;
+}
+
+.sidebar-bottom small {
+  margin-left: auto;
+  color: #d8b45e;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #5dc78c;
+}
+
+/* =====================================================
+   ÁREA PRINCIPAL Y BARRA SUPERIOR
+   ===================================================== */
+
+.main-area {
+  width: calc(100% - 255px);
+  min-height: 100vh;
+  margin-left: 255px;
+}
+
+.topbar {
+  min-height: 70px;
+  background: white;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 30px;
+  gap: 15px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #91a0ad;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.breadcrumb b {
+  color: var(--navy);
+  font-size: 12px;
+}
+
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.mobile-menu {
+  display: none;
+  background: transparent;
+  color: var(--navy);
+  border: 0;
+}
+
+.page-content {
+  max-width: 1500px;
+  margin: auto;
+  padding: 30px;
+}
+
+.page-content footer {
+  margin-top: 35px;
+  padding: 18px 5px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: #98a5b1;
+  font-size: 10px;
+}
+
+/* =====================================================
+   TÍTULOS Y ENCABEZADOS
+   ===================================================== */
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  display: block;
+  color: var(--gold);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.section-title h2 {
+  margin: 0;
+  color: var(--navy);
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -.6px;
+}
+
+.section-title p {
+  color: var(--muted);
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* =====================================================
+   TARJETAS Y PANELES
+   ===================================================== */
+
+.panel {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+  min-width: 0;
+}
+
+.panel h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 19px;
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.panel h3 svg {
+  color: var(--gold);
+}
+
+.welcome {
+  min-height: 155px;
+  padding: 28px 32px;
+  background: linear-gradient(115deg, #142b40, #294e6b);
+  border-radius: 14px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.welcome .eyebrow {
+  color: #e5bd68;
+}
+
+.welcome h2 {
+  margin: 0;
+  font-size: 25px;
+  color: white;
+}
+
+.welcome p {
+  color: #c6d4df;
+  font-size: 11px;
+}
+
+.sun-orb {
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  background: rgba(218,174,83,.17);
+  color: #e6bd68;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(230,189,104,.35);
+}
+
+/* =====================================================
+   MÉTRICAS Y RESULTADOS
+   ===================================================== */
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.metric {
+  background: white;
+  padding: 19px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  box-shadow: var(--shadow);
+  min-width: 0;
+}
+
+.metric-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.metric-top svg {
+  color: var(--gold);
+}
+
+.metric strong {
+  display: block;
+  margin: 15px 0 7px;
+  color: var(--navy);
+  font-size: 23px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.metric small {
+  color: #91a0ad;
+  font-size: 10px;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 17px;
+}
+
+/* =====================================================
+   FORMULARIOS Y CAMPOS
+   ===================================================== */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  color: #506477;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.field > span {
+  color: #526679;
+}
+
+.field input,
+.field select,
+.input-wrap {
+  width: 100%;
+  min-width: 0;
+}
+
+.field input,
+.field select {
+  height: 41px;
+  padding: 0 12px;
+  background: #fbfcfd;
+  color: var(--text);
+  border: 1px solid #dce4eb;
+  border-radius: 7px;
+  outline: none;
+  font-size: 12px;
+  transition: .2s;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(195,148,53,.12);
+  background: white;
+}
+
+.input-wrap {
+  position: relative;
+}
+
+.input-wrap input {
+  padding-right: 60px;
+}
+
+.input-wrap small {
+  position: absolute;
+  top: 50%;
+  right: 11px;
+  transform: translateY(-50%);
+  color: #8c9aa7;
+  font-size: 9px;
+  pointer-events: none;
+}
+
+/* =====================================================
+   BOTONES
+   ===================================================== */
+
+.primary,
+.secondary {
+  min-height: 38px;
+  padding: 9px 14px;
+  border-radius: 7px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 800;
+  transition: .2s ease;
+}
+
+.primary {
+  color: white;
+  background: var(--navy);
+  border: 1px solid var(--navy);
+}
+
+.primary:hover {
+  background: var(--navy-light);
+  border-color: var(--gold);
+  transform: translateY(-1px);
+}
+
+.secondary {
+  color: var(--navy);
+  background: white;
+  border: 1px solid #dce4eb;
+}
+
+.secondary:hover {
+  background: #f7f9fb;
+  border-color: var(--gold);
+}
+
+.panel > .primary,
+.panel > .secondary {
+  margin-top: 5px;
+}
+
+button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+/* =====================================================
+   TABLAS
+   ===================================================== */
+
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin: 15px 0;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: white;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  text-align: left;
+}
+
+/* Campos editables del estudio de cargas */
+.table-wrap td input {
+  width: 100%;
+  min-width: 78px;
+  height: 35px;
+  padding: 6px 8px;
+  border: 1px solid #dce4eb;
+  border-radius: 6px;
+  background: #fbfcfd;
+  color: var(--text);
+  font: inherit;
+}
+.table-wrap td input:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 2px rgba(195,148,53,.12);
+  background: #fff;
+}
+
+thead {
+  background: #edf2f6;
+  color: var(--navy);
+}
+
+th,
+td {
+  padding: 12px 13px;
+  border-bottom: 1px solid #e9eef2;
+  white-space: nowrap;
+}
+
+th {
+  font-size: 10px;
+  font-weight: 800;
+}
+
+td {
+  color: #536779;
+}
+
+tbody tr:hover {
+  background: #fbfcfd;
+}
+
+tfoot {
+  background: #fff8e8;
+  color: var(--navy);
+  font-weight: 800;
+}
+
+tfoot th {
+  color: var(--navy);
+}
+
+/* =====================================================
+   MENSAJES Y AVISOS
+   ===================================================== */
+
+.hint {
+  margin: 15px 0 0;
+  color: #8796a5;
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+.notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 16px;
+  margin: 17px 0;
+  border-radius: 8px;
+  background: #fff8e9;
+  border: 1px solid #f0dfb6;
+  color: #82652d;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.notice svg {
+  flex-shrink: 0;
+  color: var(--gold);
+}
+
+/* =====================================================
+   RUTA DE DISEÑO
+   ===================================================== */
+
+.key-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #edf0f3;
+  font-size: 11px;
+}
+
+.key-row span {
+  color: var(--muted);
+}
+
+.key-row b {
+  color: var(--navy);
+  text-align: right;
+}
+
+.route-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 3px;
+  border: 0;
+  border-bottom: 1px solid #edf0f3;
+  background: white;
+  color: #526679;
+  font-size: 10px;
+  text-align: left;
+}
+
+.route-item:hover {
+  color: var(--navy);
+  background: #f8fafc;
+}
+
+.route-item > svg {
+  margin-left: auto;
+  color: #a2afba;
+}
+
+.route-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 29px;
+  height: 29px;
+  border-radius: 7px;
+  background: #f9f1df;
+  color: var(--gold);
+}
+
+/* =====================================================
+   CATÁLOGO DE PANELES
+   ===================================================== */
+
+.catalog-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f8fafc;
+  border: 1px solid #dfe6ed;
+  border-radius: 9px;
+  padding: 11px 14px;
+  margin-bottom: 20px;
+  color: #8393a3;
+}
+
+.catalog-search input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  width: 100%;
+  color: #253b50;
+  font-size: 12px;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.catalog-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 18px;
+  border: 1px solid #e4eaf0;
+  border-radius: 11px;
+  background: #fbfcfd;
+  min-width: 0;
+}
+
+.catalog-card h3 {
+  margin: 0;
+  color: #20364c;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.catalog-card strong {
+  font-size: 22px;
+  color: #bd8a24;
+}
+
+.catalog-card p {
+  margin: 0;
+  color: #718194;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.catalog-card a {
+  color: #3976a5;
+  font-size: 10px;
+  text-decoration: underline;
+}
+
+.catalog-card .primary {
+  margin-top: 5px;
+}
+
+.catalog-card button,
+.compare-button {
+  cursor: pointer;
+}
+
+.compare-button {
+  width: 100%;
+  border: 1px solid #dce5ed;
+  background: white;
+  color: #526477;
+  border-radius: 7px;
+  padding: 9px;
+  font-size: 10px;
+}
+
+.compare-button:hover {
+  background: #fff5df;
+}
+
+.custom-form {
+  margin-top: 18px;
+}
+
+.custom-form button {
+  min-height: 40px;
+}
+
+/* =====================================================
+   DIAGRAMA UNIFILAR
+   ===================================================== */
+
+.electrical-sheet {
+  background: white;
+  border: 1px solid #dfe6ed;
+  border-radius: 12px;
+  padding: 22px;
+  margin: 15px 0;
+  overflow-x: auto;
+  box-shadow: var(--shadow);
+}
+
+.diagram-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e8edf2;
+  color: #20364c;
+  font-size: 12px;
+}
+
+.diagram-heading span {
+  background: #fff4d9;
+  color: #93691c;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.electrical-sheet svg {
+  display: block;
+  width: 100%;
+  min-width: 700px;
+  height: auto;
+  margin: 15px auto;
+}
+
+.diagram-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  border-top: 1px solid #e8edf2;
+  padding-top: 15px;
+  color: #647588;
+  font-size: 10px;
+}
+
+.diagram-legend b {
+  width: 100%;
+  color: #20364c;
+}
+
+/* =====================================================
+   INFORME TÉCNICO
+   ===================================================== */
+
+.report {
+  padding: 30px;
+}
+
+.report-head {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-bottom: 20px;
+  margin-bottom: 22px;
+  border-bottom: 2px solid var(--gold);
+}
+
+.brand-mark {
+  width: 55px;
+  height: 55px;
+  border-radius: 12px;
+  background: var(--navy);
+  color: #e8bd63;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-mark svg {
+  width: 32px;
+  height: 32px;
+}
+
+.report-head h2 {
+  margin: 0;
+  color: var(--navy);
+  font-size: 23px;
+}
+
+.report-head p {
+  color: var(--muted);
+  font-size: 10px;
+  margin: 5px 0 0;
+}
+
+.report > h3 {
+  color: var(--navy);
+  margin: 22px 0 12px;
+  font-size: 15px;
+}
+
+.report > p {
+  color: #586d80;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.report-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 22px 0;
+}
+
+.report-grid > div {
+  padding: 16px;
+  background: #f6f8fa;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.report-grid small {
+  display: block;
+  margin-bottom: 8px;
+  color: #8796a5;
+  font-size: 10px;
+}
+
+.report-grid strong {
+  color: var(--navy);
+  font-size: 13px;
+}
+
+.signature {
+  margin-top: 30px !important;
+  padding-top: 15px;
+  border-top: 1px solid var(--border);
+  text-align: right;
+}
+
+/* =====================================================
+   MENÚ MÓVIL
+   ===================================================== */
+
+.scrim {
+  display: none;
+}
+
+@media (max-width: 1050px) {
+  .result-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .page-content {
+    padding: 23px;
+  }
+
+  .topbar {
+    padding: 12px 20px;
+  }
+}
+
+@media (max-width: 700px) {
+  .sidebar {
+    width: 275px;
+    min-width: 275px;
+    transform: translateX(-100%);
+    transition: transform .25s ease;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .close-menu {
+    display: block;
+  }
+
+  .scrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    background: rgba(8,20,32,.55);
+  }
+
+  .main-area {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .mobile-menu {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .topbar {
+    min-height: 62px;
+    padding: 10px 13px;
+    gap: 8px;
+  }
+
+  .breadcrumb {
+    font-size: 9px;
+    gap: 4px;
+    flex: 1;
+  }
+
+  .breadcrumb b {
+    font-size: 10px;
+  }
+
+  .top-actions {
+    gap: 5px;
+  }
+
+  .top-actions button {
+    padding: 8px;
+    font-size: 9px;
+  }
+
+  .page-content {
+    padding: 17px 13px;
+  }
+
+  .section-title h2 {
+    font-size: 21px;
+  }
+
+  .form-grid,
+  .two-col,
+  .catalog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .result-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .metric {
+    padding: 13px;
+  }
+
+  .metric strong {
+    font-size: 18px;
+  }
+
+  .metric-top {
+    font-size: 9px;
+  }
+
+  .welcome {
+    padding: 22px 18px;
+  }
+
+  .welcome h2 {
+    font-size: 20px;
+  }
+
+  .sun-orb {
+    width: 65px;
+    height: 65px;
+    flex-shrink: 0;
+  }
+
+  .panel {
+    padding: 16px;
+  }
+
+  .electrical-sheet {
+    padding: 12px;
+  }
+
+  .diagram-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .report {
+    padding: 17px;
+  }
+}
+
+@media (max-width: 390px) {
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .top-actions .secondary {
+    display: none;
+  }
+}
+
+/* =====================================================
+   IMPRESIÓN Y GUARDADO EN PDF
+   ===================================================== */
+
+@media print {
+  @page {
+    size: landscape;
+    margin: 12mm;
+  }
+
+  body {
+    background: white !important;
+    color: #222 !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .sidebar,
+  .topbar,
+  .scrim,
+  .mobile-menu,
+  .top-actions,
+  .page-content footer,
+  .page-content > button,
+  .notice {
+    display: none !important;
+  }
+
+  .main-area {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .page-content {
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  .electrical-sheet {
+    border: 1px solid #aaa;
+    box-shadow: none;
+    break-inside: avoid;
+    overflow: visible;
+  }
+
+  .electrical-sheet svg {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .diagram-legend {
+    color: #222;
+  }
+
+  .panel,
+  .report {
+    box-shadow: none;
+  }
+
+  button {
+    display: none !important;
+  }
+}
+
+
+/* DIAGRAMA UNIFILAR - PRESENTACIÓN TÉCNICA */
+.technical-plan {
+  width: 100%;
+  padding: 18px;
+  background: #fff;
+  border: 1px solid #cbd5df;
+  overflow: hidden;
+}
+
+.technical-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 8px 18px;
+  border-bottom: 2px solid #263f55;
+  margin-bottom: 15px;
+}
+
+.technical-header h2 {
+  margin: 7px 0;
+  color: #20364c;
+  font-size: 19px;
+}
+
+.technical-header p {
+  margin: 0;
+  color: #647789;
+  font-size: 12px;
+}
+
+.technical-stamp {
+  min-width: 145px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 12px;
+  border: 1px solid #263f55;
+  color: #263f55;
+  text-align: center;
+  font-size: 10px;
+}
+
+.technical-stamp b {
+  font-size: 15px;
+}
+
+.diagram-scroll {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #cbd5df;
+  background: #fff;
+}
+
+.technical-svg {
+  display: block;
+  width: 100%;
+  min-width: 950px;
+  height: auto;
+  background: #fff;
+}
+
+.technical-plan .hint {
+  margin-top: 14px;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+@media print {
+  @page {
+    size: A3 landscape;
+    margin: 7mm;
+  }
+
+  body * {
+    visibility: hidden !important;
+  }
+
+  .electrical-sheet,
+  .electrical-sheet * {
+    visibility: visible !important;
+  }
+
+  .electrical-sheet {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 5px !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .diagram-scroll {
+    overflow: visible !important;
+    border: none !important;
+  }
+
+  .technical-svg {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-height: 185mm !important;
+  }
+
+  .technical-header {
+    padding: 4px 8px 8px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .technical-header h2 {
+    font-size: 15px !important;
+  }
+
+  .technical-plan .hint {
+    font-size: 8px !important;
+    margin-top: 5px !important;
+  }
+
+  .notice,
+  .primary,
+  .topbar,
+  .sidebar,
+  footer {
+    display: none !important;
+  }
+}
+
+/* =====================================================
+   SOLAR PRO 2.0 - IDENTIDAD VISUAL PREMIUM
+   AZUL NOCHE · AZUL ELECTRICO · ORO
+   ===================================================== */
+
+:root {
+  --navy: #071629;
+  --navy-light: #102b4a;
+  --navy-soft: #173b61;
+  --gold: #e9ad32;
+  --gold-light: #fff0c7;
+  --background: #eef3f9;
+  --text: #192d43;
+  --muted: #71849a;
+  --border: #dce5ef;
+  --shadow: 0 8px 28px rgba(7, 22, 41, .08);
+}
+
+/* FONDO GENERAL */
+
+@media screen {
+  body {
+    background: #eef3f9;
+    color: #192d43;
+  }
+
+  .app-shell {
+    background:
+      radial-gradient(circle at 90% 0%, #e1edff 0, transparent 32%),
+      #eef3f9;
+  }
+
+  /* MENU LATERAL */
+
+  .sidebar {
+    background: linear-gradient(180deg, #061326 0%, #102d4e 100%);
+    box-shadow: 5px 0 25px rgba(3, 15, 31, .16);
+  }
+
+  .logo {
+    border-bottom-color: rgba(255,255,255,.13);
+  }
+
+  .logo-icon {
+    background: linear-gradient(135deg, #ffd36a, #d88b13);
+    color: #071629;
+    border-radius: 14px;
+    box-shadow: 0 0 22px rgba(233,173,50,.28);
+  }
+
+  .logo b {
+    letter-spacing: 1.5px;
+  }
+
+  .nav-item {
+    border-radius: 10px;
+    padding: 13px 12px;
+    transition: all .25s ease;
+  }
+
+  .nav-item:hover {
+    background: rgba(75,151,255,.14);
+    transform: translateX(3px);
+  }
+
+  .nav-item.active {
+    background: linear-gradient(100deg, #164b7d, #12375e);
+    border-left: 3px solid #f4bd48;
+    box-shadow: inset 0 0 15px rgba(73,153,255,.12);
+  }
+
+  /* BARRA SUPERIOR */
+
+  .topbar {
+    background: rgba(255,255,255,.94);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid #dce6f1;
+    box-shadow: 0 3px 15px rgba(10,35,60,.035);
+  }
+
+  .breadcrumb b {
+    color: #0b2948;
+  }
+
+  /* TITULOS */
+
+  .section-title h2 {
+    color: #0a2542;
+    letter-spacing: -.8px;
+  }
+
+  .eyebrow {
+    color: #c78b19;
+    letter-spacing: 2px;
+  }
+
+  /* TARJETAS */
+
+  .panel,
+  .metric,
+  .electrical-sheet {
+    border: 1px solid #dce6f0;
+    border-radius: 15px;
+    box-shadow: 0 7px 24px rgba(12,38,67,.055);
+    transition: box-shadow .25s ease, transform .25s ease;
+  }
+
+  .panel:hover,
+  .metric:hover {
+    box-shadow: 0 12px 30px rgba(12,38,67,.09);
+  }
+
+  .panel h3 {
+    color: #0b2948;
+  }
+
+  .panel h3 svg,
+  .metric-top svg {
+    color: #d99c27;
+  }
+
+  /* BIENVENIDA */
+
+  .welcome {
+    background:
+      radial-gradient(circle at 85% 20%, rgba(42,139,255,.35), transparent 30%),
+      linear-gradient(115deg, #061629, #103b68 70%, #14518a);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 18px;
+    box-shadow: 0 12px 32px rgba(7,32,60,.18);
+  }
+
+  .welcome .eyebrow {
+    color: #ffd16a;
+  }
+
+  .welcome h2 {
+    letter-spacing: -.5px;
+  }
+
+  .sun-orb {
+    background: linear-gradient(135deg, rgba(255,206,94,.22), rgba(255,255,255,.05));
+    border: 1px solid rgba(255,211,115,.45);
+    color: #ffd16a;
+    box-shadow: 0 0 35px rgba(255,188,55,.13);
+  }
+
+  /* METRICAS */
+
+  .metric {
+    background: linear-gradient(145deg, #fff, #f8fbff);
+  }
+
+  .metric strong {
+    color: #0c2c4d;
+  }
+
+  /* CAMPOS */
+
+  .field input,
+  .field select {
+    background: #f9fbfe;
+    border: 1px solid #d9e4ef;
+    border-radius: 9px;
+    transition: all .2s ease;
+  }
+
+  .field input:focus,
+  .field select:focus {
+    border-color: #398de5;
+    box-shadow: 0 0 0 3px rgba(57,141,229,.13);
+    background: #fff;
+  }
+
+  /* BOTONES */
+
+  .primary {
+    background: linear-gradient(110deg, #0b2949, #15528a);
+    border: 1px solid #174d7c;
+    border-radius: 9px;
+    box-shadow: 0 4px 12px rgba(12,54,91,.16);
+  }
+
+  .primary:hover {
+    background: linear-gradient(110deg, #124477, #1670b8);
+    border-color: #e9ad32;
+    box-shadow: 0 7px 17px rgba(12,54,91,.22);
+    transform: translateY(-2px);
+  }
+
+  .secondary {
+    border-radius: 9px;
+    border-color: #d5e1ed;
+    color: #163b60;
+    background: #fff;
+  }
+
+  .secondary:hover {
+    background: #edf5ff;
+    border-color: #6aa8e8;
+  }
+
+  /* TABLAS */
+
+  .table-wrap {
+    border-radius: 12px;
+    border-color: #dce6f0;
+    box-shadow: 0 4px 15px rgba(12,38,67,.035);
+  }
+
+  thead {
+    background: #eaf2fb;
+    color: #0b2948;
+  }
+
+  tbody tr:hover {
+    background: #f1f7ff;
+  }
+
+  tfoot {
+    background: #fff5df;
+  }
+
+  /* CATALOGO */
+
+  .catalog-card {
+    background: linear-gradient(145deg, #fff, #f7faff);
+    border-radius: 13px;
+    border-color: #dce6f0;
+    transition: all .25s ease;
+  }
+
+  .catalog-card:hover {
+    border-color: #8cb8e8;
+    box-shadow: 0 8px 22px rgba(20,76,130,.09);
+    transform: translateY(-3px);
+  }
+
+  .catalog-card strong {
+    color: #c88b1b;
+  }
+
+  /* DIAGRAMA */
+
+  .diagram-heading span {
+    background: #fff2d5;
+    color: #99650c;
+  }
+
+  .route-icon {
+    background: #e9f2ff;
+    color: #2675bd;
+    border-radius: 9px;
+  }
+
+  .route-item:hover {
+    background: #f0f6ff;
+  }
+
+  /* INFORME */
+
+  .brand-mark {
+    background: linear-gradient(135deg, #071629, #174d7c);
+    color: #ffd16a;
+    box-shadow: 0 5px 15px rgba(7,22,41,.16);
+  }
+
+  .report-head {
+    border-bottom-color: #e4ad38;
+  }
+
+  .report-grid > div {
+    background: #f5f8fc;
+    border-radius: 10px;
+  }
+
+  /* MENSAJES */
+
+  .notice {
+    border-radius: 10px;
+  }
+
+  /* MOVILES Y TABLETAS */
+
+  @media (max-width: 700px) {
+    .sidebar {
+      box-shadow: 12px 0 35px rgba(0,0,0,.25);
+    }
+
+    .topbar {
+      backdrop-filter: blur(12px);
+    }
+
+    .welcome {
+      border-radius: 14px;
+    }
+
+    .panel,
+    .metric {
+      border-radius: 12px;
+    }
+
+    .primary,
+    .secondary {
+      min-height: 42px;
+    }
+
+    .field input,
+    .field select {
+      min-height: 43px;
+    }
+  }
+}
+
+
+/* ETAPA 4 · LÁMINA TÉCNICA DE CONDUCTORES Y PROTECCIONES */
+.solar-schedule-sheet{width:100%;margin:22px 0;background:#fff;border:1px solid #263f55;padding:18px;color:#20364c;box-shadow:0 7px 24px rgba(12,38,67,.055);}
+.schedule-head{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:8px 6px 14px;border-bottom:2px solid #263f55;margin-bottom:14px;}
+.schedule-head h2{margin:5px 0;color:#20364c;font-size:19px;}
+.schedule-head p{margin:0;color:#647789;font-size:11px;}
+.schedule-stamp{min-width:130px;border:1px solid #263f55;padding:9px;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:9px;text-align:center;}
+.schedule-stamp b{font-size:14px;}
+.schedule-columns{display:grid;grid-template-columns:minmax(0,2.1fr) minmax(240px,1fr);gap:13px;align-items:start;}
+.schedule-main,.schedule-aside{min-width:0;}
+.solar-schedule-sheet h3{font-size:11px;text-transform:uppercase;letter-spacing:.35px;color:#20364c;background:#edf2f6;border:1px solid #cbd5df;padding:7px 9px;margin:10px 0 0;}
+.schedule-table{overflow-x:auto;margin:0 0 10px;border-radius:0;}
+.solar-schedule-sheet table{font-size:8px;}
+.solar-schedule-sheet th,.solar-schedule-sheet td{white-space:normal;vertical-align:top;padding:6px 5px;border:1px solid #d8e0e7;line-height:1.35;}
+.solar-schedule-sheet th{background:#e9eef3;font-size:7.5px;}
+.solar-schedule-sheet td{color:#344b60;}
+.schedule-aside dl{display:grid;grid-template-columns: minmax(90px,.9fr) minmax(0,1.2fr);margin:0;border:1px solid #d8e0e7;border-top:0;font-size:9px;}
+.schedule-aside dt,.schedule-aside dd{padding:6px 7px;margin:0;border-bottom:1px solid #e1e7ec;overflow-wrap:anywhere;}
+.schedule-aside dt{font-weight:700;color:#647789;background:#f8fafc;}
+.schedule-aside dd{color:#20364c;}
+.schedule-notes{margin:0;padding:9px 10px 9px 25px;border:1px solid #d8e0e7;border-top:0;font-size:8.5px;line-height:1.45;color:#52677a;}
+.schedule-notes li{margin:0 0 5px;}
+.bonding-box{border:1px solid #cbd5df;padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:12px;min-height:120px;}
+.bonding-list{display:flex;flex-direction:column;gap:6px;}
+.bonding-list div{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid #e4eaf0;padding:4px;font-size:8px;}
+.bonding-list b{color:#23845c;white-space:nowrap;}
+.bonding-bar{border-left:5px solid #23845c;padding:8px;display:flex;flex-direction:column;justify-content:center;gap:8px;font-size:9px;color:#23845c;}
+.bonding-bar span{color:#52677a;}
+.schedule-footer{display:grid;grid-template-columns:2fr 1fr 1.5fr .6fr;margin-top:14px;border:1px solid #263f55;}
+.schedule-footer div{min-height:45px;padding:7px;border-right:1px solid #cbd5df;display:flex;flex-direction:column;gap:7px;font-size:8px;}
+.schedule-footer div:last-child{border:0;}
+.schedule-footer b{font-size:7px;color:#647789;text-transform:uppercase;}
+.schedule-disclaimer{font-size:8px;color:#647789;line-height:1.4;margin:8px 0 0;}
+@media(max-width:900px){.schedule-columns{grid-template-columns:1fr}.schedule-table{overflow-x:auto}.solar-schedule-sheet{padding:10px}.schedule-head{align-items:flex-start}.bonding-box{grid-template-columns:1fr}}
+@media print{
+ @page{size:A3 landscape;margin:7mm}
+ body *{visibility:hidden!important}
+ .electrical-sheet,.electrical-sheet *,.solar-schedule-sheet,.solar-schedule-sheet *{visibility:visible!important}
+ .electrical-sheet{position:relative!important;left:auto!important;top:auto!important;width:100%!important;page-break-after:always!important;break-after:page!important;margin:0!important;padding:3mm!important;}
+ .solar-schedule-sheet{position:relative!important;left:auto!important;top:auto!important;width:100%!important;margin:0!important;padding:3mm!important;page-break-before:always!important;break-before:page!important;box-shadow:none!important;}
+ .schedule-columns{grid-template-columns:minmax(0,2.1fr) minmax(240px,1fr)!important;gap:8px!important}
+ .solar-schedule-sheet table{font-size:7px!important}
+ .solar-schedule-sheet th,.solar-schedule-sheet td{padding:4px 3px!important}
+ .solar-schedule-sheet h3{font-size:9px!important;padding:5px!important}
+ .schedule-head h2{font-size:15px!important}
+ .schedule-notes{font-size:7px!important;padding-top:5px!important;padding-bottom:5px!important}
+ .schedule-footer div{min-height:34px!important}
+ .notice,.primary,.topbar,.sidebar,footer{display:none!important}
+}
+
+/* Exportación CAD */
+.cad-export-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:12px 0;padding:12px 14px;background:#f4f7fa;border:1px solid #cbd5df;border-radius:6px}
+.cad-export-actions span{font-size:10px;color:#52677a}
+@media print{.cad-export-actions,.no-print{display:none!important}}
+
+/* Acciones de exportación visibles y claras en el diagrama */
+.cad-export-actions .primary,
+.cad-export-actions .secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.cad-export-actions .primary { background: #1d5f8a; color: #fff; }
+@media print {
+  .cad-export-actions,
+  .cad-export-actions * { display: none !important; }
+}
+
+
+/* ETAPA 4.3 - controles CAD compactos: evita que la regla global de SVG
+   agrande los iconos de los botones hasta ocupar toda la hoja. */
+.cad-export-actions {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 8px 0 12px;
+  padding: 7px 9px;
+  background: #f4f7fa;
+  border: 1px solid #cbd5df;
+  border-radius: 6px;
+}
+.cad-export-actions button.primary,
+.cad-export-actions button.secondary {
+  display: inline-flex !important;
+  width: auto !important;
+  min-width: 0 !important;
+  min-height: 30px !important;
+  height: 30px !important;
+  padding: 5px 10px !important;
+  margin: 0 !important;
+  font-size: 10px !important;
+  line-height: 1.2 !important;
+  white-space: nowrap;
+  flex: 0 0 auto !important;
+}
+.cad-export-actions button svg,
+.electrical-sheet .cad-export-actions svg {
+  display: inline-block !important;
+  width: 14px !important;
+  min-width: 14px !important;
+  max-width: 14px !important;
+  height: 14px !important;
+  min-height: 14px !important;
+  max-height: 14px !important;
+  flex: 0 0 14px !important;
+}
+.cad-export-actions span {
+  flex: 1 1 220px;
+  font-size: 9px !important;
+  line-height: 1.35;
+}
+/* El SVG grande del plano conserva su tamaño; los iconos de interfaz no. */
+.electrical-sheet > .diagram-scroll > svg.technical-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+@media (max-width: 700px) {
+  .cad-export-actions { align-items: flex-start; }
+  .cad-export-actions span { flex-basis: 100%; }
+}
+
+/* ETAPA 05 · Presupuesto comercial y editable */
+.budget-mode-switch{display:flex;gap:6px;padding:5px;background:#eef2f6;border:1px solid var(--border);border-radius:11px;flex-wrap:wrap}
+.budget-mode-switch button{display:inline-flex;align-items:center;gap:7px;border:1px solid transparent;border-radius:8px;padding:10px 13px;background:transparent;color:var(--text);font-weight:700;font-size:12px}
+.budget-mode-switch button.active{background:#173b5d;color:#fff;box-shadow:0 2px 7px rgba(18,45,70,.18)}
+.budget-table{min-width:850px}
+.budget-table td{vertical-align:top;padding:12px 10px}
+.budget-table .hint{max-width:360px;line-height:1.45}
+.budget-summary .key-row{padding:10px 0;border-bottom:1px solid var(--border)}
+.budget-grand-total{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:16px 0;padding:16px;border-radius:10px;background:#edf3f8;color:#173b5d;font-weight:800}
+.budget-grand-total strong{font-size:22px}
+@media(max-width:700px){.budget-mode-switch{width:100%}.budget-mode-switch button{flex:1;justify-content:center;padding:9px 7px;font-size:11px}.budget-grand-total strong{font-size:18px}}
+
+/* Ajustes de legibilidad y controles deslizantes del presupuesto */
+.budget-table{width:100%;table-layout:fixed;border-collapse:collapse}
+.budget-table th,.budget-table td{box-sizing:border-box;overflow-wrap:anywhere}
+.budget-table th:nth-child(2),.budget-table td:nth-child(2){width:12%;min-width:100px;white-space:normal;text-align:center}
+.budget-table th:nth-child(3),.budget-table td:nth-child(3){width:32%;min-width:260px}
+.budget-table th:nth-child(4),.budget-table td:nth-child(4){width:18%;min-width:135px;white-space:nowrap}
+.budget-quantity{white-space:normal!important;text-align:center}
+.budget-quantity strong{display:block;font-variant-numeric:tabular-nums;font-weight:800;font-size:16px;color:var(--text);line-height:1.35}
+.budget-quantity small{display:block;margin-top:3px;color:var(--muted);font-size:11px;line-height:1.3}
+.budget-slider-grid{display:grid;grid-template-columns:repeat(2,minmax(220px,1fr));gap:14px;margin-top:14px}
+.budget-slider-card{display:flex;flex-direction:column;gap:9px;padding:15px;border:1px solid var(--border);border-radius:12px;background:var(--surface,white);min-width:0}
+.budget-slider-card>span{font-size:13px;font-weight:700;color:var(--text)}
+.budget-slider-card strong{font-size:19px;font-variant-numeric:tabular-nums;color:var(--primary,#173b5d)}
+.budget-slider-card input[type=range]{width:100%;accent-color:#1769aa;cursor:grab}
+.budget-slider-card input[type=range]:active{cursor:grabbing}
+.budget-slider-card small{font-size:11px;color:var(--muted);line-height:1.4}
+@media(max-width:700px){.budget-slider-grid{grid-template-columns:1fr}.budget-table{min-width:900px}}

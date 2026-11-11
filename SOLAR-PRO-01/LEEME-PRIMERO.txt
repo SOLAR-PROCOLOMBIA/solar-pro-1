@@ -1,0 +1,31 @@
+SOLAR PRO - VERSION OFICIAL UNIFICADA V1
+Base: SOLAR-PRO 01(1) + actualizacion del estudio de cargas + mapa interactivo.
+
+CONTENIDO CONFIRMADO EN EL CODIGO ACTIVO:
+- Los nueve modulos principales de SOLAR PRO.
+- Estudio de cargas con registro de electrodomesticos: nombre, potencia, cantidad y horas/dia.
+- Calculo de consumo diario y mensual (30 dias).
+- Seleccion entre consumo de referencia y consumo calculado por equipos.
+- Localizador de municipios, coordenadas, consulta de radiacion mensual NASA POWER y mapa OpenStreetMap.
+- Los datos de consumo/equipos se integran en el proyecto y en el dimensionamiento.
+
+INSTALACION EN WINDOWS:
+1. Conserva tus carpetas anteriores como respaldo; no las borres.
+2. Extrae este ZIP en una carpeta nueva llamada SOLAR-PRO-OFICIAL-V1.
+3. Copia el archivo .env de tu proyecto anterior a esta carpeta, al mismo nivel que package.json. No compartas ese archivo.
+4. Abre esta carpeta desde Visual Studio Code (Archivo > Abrir carpeta).
+5. Abre Terminal > Nueva terminal.
+6. Ejecuta: npm install
+7. Cuando termine, ejecuta: npm run dev
+8. Abre la direccion local que Vite muestre en la terminal.
+
+IMPORTANTE:
+- No se incluye node_modules ni dist; npm install los genera en tu equipo.
+- No se incluye .env por seguridad. Copia el de tu instalacion anterior para conservar la conexion a Supabase.
+- El mapa requiere internet. El marcador identifica el municipio consultado, no necesariamente el techo exacto.
+- NASA POWER entrega el recurso solar consultado; el mapa no calcula la radiacion.
+- Los resultados electricos son predimensionamientos y deben verificarse con fichas tecnicas, condiciones reales, RETIE y normas aplicables por un profesional competente.
+
+VALIDACION:
+- Se verifico que el codigo activo contiene el registro de electrodomesticos, selector de consumo, consulta NASA POWER y mapa OpenStreetMap.
+- No se pudo completar una compilacion de produccion en este entorno. La validacion final debe hacerse en Windows despues de npm install, ejecutando npm run build.
